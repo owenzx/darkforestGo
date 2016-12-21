@@ -6,3 +6,5 @@
 models
 test_playout_multithread
 cnnPlayerV2/game-*.sgf
+defaultPolicyTest
+playground.lua
