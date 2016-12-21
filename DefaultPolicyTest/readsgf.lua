@@ -1,11 +1,3 @@
---
--- Copyright (c) 2016-present, Facebook, Inc.
--- All rights reserved.
---
--- This source code is licensed under the BSD-style license found in the
--- LICENSE file in the root directory of this source tree. An additional grant
--- of patent rights can be found in the PATENTS file in the same directory.
---
 local board = require 'board.board'
 local pl = require 'pl.import_into'()
 local goutils = require 'utils.goutils'
@@ -16,7 +8,6 @@ local opt = pl.lapp[[
    -s,--sgf               (default "")         Sgf file to load
    -s,--start_n           (default -1)         Start from
    -e,--end_n             (default -1)         End to
-   -r,--rollout           (default 1000)       Rollout number
 ]]
 
 assert(opt.sgf)
@@ -25,6 +16,7 @@ local game = assert(sgf.parse(content))
 print(game.sgf[1].PW)
 print(game.sgf[1].PB)
 print(game.sgf[1].RE)
+print(game.sgf[1])
 
 local b = board.new()
 board.clear(b)
