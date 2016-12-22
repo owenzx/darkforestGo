@@ -215,7 +215,7 @@ BOOL GetCaptureSize(const Board *board, Stone *player, float *data){
             if (ids.ids[j]==0) continue;
             if (ids.colors[j]!=player){
                 if (ids.group_liberties[j]==1) {
-                    if (captured[0]!=ids.ids[j] && captured[1]!=ids.ids[j] != captured[2]!=ids.ids[j]){
+                    if (captured[0]!=ids.ids[j] && captured[1]!=ids.ids[j] && captured[2]!=ids.ids[j]){
                         captureSize += board._group[ids.ids[j]].stones;
                         captured[j] = ids.ids[j];
                     }
@@ -234,7 +234,7 @@ BOOL GetSelfAtariSize(const Board *board, Stone *player, float *data){
     int atariSize;
     FindAllValidMoves(board,player,&mvs);
     for (int i=0; i<mvs.num_moves; ++i){
-        if (IsSelfAtari(board,&ids,mvs.moves[i],player,&atariSize))
+        if (IsSelfAtari(board,NULL,mvs.moves[i],player,&atariSize))
             data[mvs.moves[i]] = atariSize;
     }
     return TRUE;

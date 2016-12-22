@@ -224,11 +224,12 @@ end
 
 function board.get_sensibleness_map(b,player)
     local sensibleness = torch.FloatTensor(19,19)
-    for i=1, 19 do
-        for j = 1, 19 do
-            sensibleness[i][j] = C.TryPlay(b,i,j,player,ids) and not C.IsTrueEyeXY(b,i,j,player);
-        end
-    end
+    --for i=1, 19 do
+    --    for j = 1, 19 do
+    --        sensibleness[i][j] = C.TryPlay(b,i,j,player,ids) and not C.IsTrueEyeXY(b,i,j,player);
+    --    end
+    --end
+    C.GetSensibleMap(b,player,sensibleness:data())
     return sensibleness;
 end
 

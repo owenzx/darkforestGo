@@ -349,6 +349,8 @@ function goutils.extract_feature(b, player, opt, rank, dataset_info)
             ["opponent stones"] = features[9],
             ["empty stones"] = features[10],
         }
+    else if opt.feature_type == 'ours' then
+        features,named_features = goutils.get_features(b,player,features[opt.feature_type],dataset_info)
     else
         if opt.feature_type == 'extended_with_attention' and opt.attention then
             dataset_info = opt.attention
